@@ -4,16 +4,19 @@ predict()
 {
 echo " Enter Predicted number of files in current location. " 
 read number
-loc_count=` find . -maxdepth 1 -not -type d | wc -l`
-if [[ $number = *([0-9]) ]]
+loc_count=`find . -maxdepth 1 -not -type d | wc -l`
+loc_count1=`ls -l | grep ^d | wc -l`
+loc_count2=$((loc_count+loc_count1))
+
+if [[ $number = *([0-9]) ]] && [[ ! -z $number ]]
   then
-	if [ $number -ne $loc_count ]
+	if [ $number -ne $loc_count2 ]
 	then
-		if [ $number -gt $loc_count ]
+		if [ $number -gt $loc_count2 ]
 		then
 		echo " You have pridicted high number.Please re-predict. "
 		else
-		echo " You have pridicted low number.Please re-predict.  "
+		echo " You have pridicted low number.Please re-predict. "
 		fi
 		predict;
 	else
@@ -21,7 +24,7 @@ if [[ $number = *([0-9]) ]]
 	fi
 	exit;
 else
-echo " Input given is not a number. "
+echo " Input given is not a number."
 fi
 predict;
 }
