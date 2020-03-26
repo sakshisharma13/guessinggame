@@ -5,7 +5,7 @@ README.md: guessinggame.sh
 	echo "" >>README.md
 	echo "*by Johns Hopkins University on [coursera.org](https://www.coursera.org/)* " >> README.md 
 	echo "" >> README.md
-	echo "**Description** : make a program called *guessing_game.sh*. "
+	echo "**Description** : make a program called *guessing_game.sh*."
 	echo "" >> README.md
 	echo -n "*Create date* : " >> README.md
 	date >> README.md
